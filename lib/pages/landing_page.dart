@@ -1,6 +1,7 @@
 import 'package:filme_flix_app/components/primary_button.dart';
 import 'package:filme_flix_app/components/secondary_button.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class LandingPage extends StatelessWidget {
   const LandingPage({super.key});
@@ -53,7 +54,7 @@ class LandingPage extends StatelessWidget {
                   ),
                 ),
                 PrimaryButton(
-                  onPressed: () {},
+                  onPressed: () => context.go('/home'),
                   text: "Login",
                 ),
                 SecondaryButton(
