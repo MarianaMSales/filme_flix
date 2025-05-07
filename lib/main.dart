@@ -1,4 +1,4 @@
-import 'package:filme_flix_app/landing_page.dart';
+import 'package:filme_flix_app/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       theme: ThemeData(
         textTheme: GoogleFonts.getTextTheme('Inter').apply(
           bodyColor: Colors.white,
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
           onSurface: Colors.white,
         )
       ),
-     home: const LandingPage(),
+     routerConfig: router,
     );
   }
 }
