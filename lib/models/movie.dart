@@ -1,19 +1,25 @@
 class Movie {
   final int id;
   final String? title;
-  final String? imagePath;
+  final String? posterPath;
 
   Movie({
     required this.id,
     this.title,
-    this.imagePath,
+    this.posterPath,
   });
 
   factory Movie.fromJson(Map<String, dynamic> json) {
     return Movie(
       id: json['id'],
       title: json['title'],
-      imagePath: json['poster_path'],
+      posterPath: json['poster_path'],
     );
   }
-}
+
+  Map<String, dynamic> toJson() => {
+        'id': id,
+        'title': title,
+        'poster_path': posterPath,
+      };
+  }

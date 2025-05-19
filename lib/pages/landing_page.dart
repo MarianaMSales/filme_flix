@@ -54,11 +54,11 @@ class LandingPage extends StatelessWidget {
                   ),
                 ),
                 PrimaryButton(
-                  onPressed: () => context.go('/home'),
+                  onPressed: () => context.go('/login'),
                   text: "Login",
                 ),
                 SecondaryButton(
-                  onPressed: () {},
+                  onPressed: () => context.go('/signup'),
                   text: "Sign Up",
                 ),
               ],

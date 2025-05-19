@@ -7,7 +7,7 @@ class MovieCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final path = 'https://image.tmdb.org/t/p/original${movie.imagePath}';
+    final path = 'https://image.tmdb.org/t/p/original${movie.posterPath}';
     return Container(
       padding: const EdgeInsets.only(right: 10),
       decoration: BoxDecoration(

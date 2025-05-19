@@ -1,14 +1,18 @@
+import 'package:filme_flix_app/repositories/movie_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:filme_flix_app/models/movie.dart';
 import 'package:filme_flix_app/components/movie_card.dart';
 import 'package:filme_flix_app/components/loading_movie_list.dart';
 import 'package:filme_flix_app/components/movie_list_error.dart';
+import 'package:go_router/go_router.dart';
 
 class MovieSection extends StatelessWidget {
   final String title;
   final Future<List<Movie>> Function() fetchMovies;
 
-  const MovieSection({
+  final MovieRepository movieRepository = MovieRepository();
+  
+  MovieSection({
     required this.title,
     required this.fetchMovies,
     super.key,
@@ -47,7 +51,14 @@ class MovieSection extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   itemCount: movies.length,
                   itemBuilder: (context, index) {
-                    return MovieCard(movie: movies[index]);
+                    final movie = movies[index];
+                    return GestureDetector(
+                      onTap: () async {
+                        final movieDetail = await movieRepository.getMovie(movie.id);
+                        GoRouter.of(context).push('/detail', extra: movieDetail);
+                      },
+                      child: MovieCard(movie: movie),
+                    );
                   },
                 ),
               );

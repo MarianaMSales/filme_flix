@@ -4,6 +4,7 @@ class AppConfig {
       const apiKey = String.fromEnvironment('API_KEY');
       const baseUrl = String.fromEnvironment('BASE_URL');
       const token = String.fromEnvironment('TOKEN');
+      print("baseUrl$baseUrl");
       _instance = AppConfig._internal(apiKey, baseUrl, token);
       return _instance!;
     }
